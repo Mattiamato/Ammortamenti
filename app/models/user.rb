@@ -4,8 +4,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :password, :on => :create
 	validates :username, :uniqueness => true
 	has_many :activities
-	has_many :assignments
-	has_many :projects, :through => :assignments
+	has_many :accounts
 	
 	def prj_role?(base_role)
 	  ""
