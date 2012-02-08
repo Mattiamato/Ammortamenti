@@ -1,0 +1,33 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Document</th>
+    <th>Payment</th>
+    <th>Category</th>
+    <th>Provider</th>
+    <th>Office</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.number %></td>
+    <td><%= item.document %></td>
+    <td><%= item.payment %></td>
+    <td><%= item.category %></td>
+    <td><%= item.provider %></td>
+    <td><%= item.office %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

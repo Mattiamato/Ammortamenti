@@ -1,4 +1,18 @@
 Ammortamenti::Application.routes.draw do
+  resources :items
+
+  resources :payments
+
+  resources :accounts
+
+  resources :offices
+
+  resources :buildings
+
+  resources :categories
+
+  resources :providers
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"

@@ -11,7 +11,85 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208091919) do
+ActiveRecord::Schema.define(:version => 20120208150131) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "desc"
+    t.string   "account"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
+
+  create_table "buildings", :force => true do |t|
+    t.string   "city"
+    t.string   "street"
+    t.string   "number"
+    t.string   "nation"
+    t.string   "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "desc"
+    t.float    "unit_price"
+    t.string   "sn"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.float    "number"
+    t.string   "document"
+    t.integer  "payment_id"
+    t.integer  "category_id"
+    t.integer  "provider_id"
+    t.integer  "office_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["category_id"], :name => "index_items_on_category_id"
+  add_index "items", ["office_id"], :name => "index_items_on_office_id"
+  add_index "items", ["payment_id"], :name => "index_items_on_payment_id"
+  add_index "items", ["provider_id"], :name => "index_items_on_provider_id"
+
+  create_table "offices", :force => true do |t|
+    t.string   "desc"
+    t.string   "number"
+    t.integer  "building_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "offices", ["building_id"], :name => "index_offices_on_building_id"
+
+  create_table "payments", :force => true do |t|
+    t.float    "amount"
+    t.string   "desc"
+    t.string   "status"
+    t.string   "document"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["account_id"], :name => "index_payments_on_account_id"
+
+  create_table "providers", :force => true do |t|
+    t.string   "city"
+    t.string   "street"
+    t.string   "number"
+    t.string   "nation"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tests", :force => true do |t|
     t.string   "test"

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  number: 1.5
+  document: MyString
+  payment: 
+  category: 
+  provider: 
+  office: 
+
+two:
+  number: 1.5
+  document: MyString
+  payment: 
+  category: 
+  provider: 
+  office: 
