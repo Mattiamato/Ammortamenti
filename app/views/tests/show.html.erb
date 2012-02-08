@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Test:</b>
+  <%= @test.test %>
+</p>
+
+
+<div id="stream" >
+<h3 id="activities">Activity on the test</h3>
+<ul>
+<% @real_stream.each do |activity| %>
+
+    <li><strong><%= activity[:user] %></strong> on <%= activity[:date] %> changed: 
+		<ul>
+		<% activity[:changes].each do |change| %>
+				<li><span style="color:red; font-weight: bold;"><%= change[:item] %></span> from <strong><%= change[:from] != nil ? change[:from] : "EMPTY" %></strong> into <strong><%= change[:into] %></strong></li>
+		<% end %>
+		</ul>
+
+
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
