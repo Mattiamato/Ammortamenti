@@ -5,6 +5,7 @@ gem 'paper_trail', '~> 2'
 gem 'kaminari'
 gem 'cancan'
 gem "dynamic_form"
+gem 'acts-as-taggable-on', '~> 2.2.2'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
