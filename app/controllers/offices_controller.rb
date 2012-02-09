@@ -40,7 +40,12 @@ class OfficesController < ApplicationController
   # POST /offices
   # POST /offices.json
   def create
-    @office = Office.new(params[:office])
+	print "**************************************************\n"
+	print params[:office]
+	print "**************************************************\n"
+	params[:office][:building_id]=params[:office][:building]
+	print params[:office]
+    #@office = Office.new(params[:office])
 
     respond_to do |format|
       if @office.save

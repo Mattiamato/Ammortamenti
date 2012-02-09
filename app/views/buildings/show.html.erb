@@ -25,6 +25,25 @@
   <%= @building.desc %>
 </p>
 
+<%= form_for([@building.offices.build]) do |f| %>
+
+
+  <div class="field">
+    <%= f.label :desc %><br />
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </div>
+  
+  <%= f.hidden_field :building %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_building_path(@building) %> |
 <%= link_to 'Back', buildings_path %>
