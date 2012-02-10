@@ -11,10 +11,9 @@ class User < ActiveRecord::Base
   end
 	
 	def admin?
-		print "===============ADMIN DEBUG===============\n"
-		print self.assignments
+	
 		if self.assignments.where("role = ?",'manager').length > 0 then
-			print "\n===============ADMIN DEBUG222===============\n"
+	
 			true
 		else
 			false

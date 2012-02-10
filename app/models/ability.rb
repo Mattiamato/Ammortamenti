@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    print "=======ABILITY======\n"
+  
        user ||= User.new # guest user (not logged in)
 
     can :manage, :all

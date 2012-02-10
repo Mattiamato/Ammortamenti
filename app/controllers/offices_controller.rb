@@ -40,9 +40,7 @@ class OfficesController < ApplicationController
   # POST /offices
   # POST /offices.json
   def create
-	print "**************************************************\n"
 	
-	print params
 	@building = Building.find(params[:building_id])
 	
 	

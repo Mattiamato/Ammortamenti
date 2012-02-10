@@ -41,25 +41,19 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
   
-	print "===================DEBUG==================="
+	
     tags = params[:category][:tag_list]
-	print tags
-	print "\n\n"
-	# /\s|,/
+	
 	tags_arr= tags.split(/\s|,/)
-	print "ARR??? -> "
-	print tags_arr
-	print "\n\n"
+	
 	tags_formatted = ""
 	tags_arr.each do |one_tag|
 		
 		tags_formatted=tags_formatted+one_tag+","
 	end
-	print "formatted? "+tags_formatted
+
 	params[:category][:tag_list] = tags_formatted
-	print "\n\n"
-	print params[:category]
-	print "===================END-DEBUG==================="
+	
 	@category = Category.new(params[:category])
 
     respond_to do |format|
