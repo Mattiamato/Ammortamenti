@@ -37,7 +37,7 @@
     <%= f.text_field :number %>
   </div>
   
-  <%= f.hidden_field :building %>
+  <%= hidden_field_tag 'office[building_id]', @building.id %>
   
   <div class="actions">
     <%= f.submit %>

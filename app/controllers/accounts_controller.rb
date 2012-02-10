@@ -1,8 +1,10 @@
 class AccountsController < ApplicationController
+  load_and_authorize_resource
+  before_filter :require_user
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = current_user.accounts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,8 +42,9 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
+	params[:account][:user_id]=current_user.id
     @account = Account.new(params[:account])
-
+	
     respond_to do |format|
       if @account.save
         format.html { redirect_to @account, notice: 'Account was successfully created.' }

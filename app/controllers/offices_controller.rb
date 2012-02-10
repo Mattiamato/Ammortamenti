@@ -43,9 +43,9 @@ class OfficesController < ApplicationController
 	print "**************************************************\n"
 	print params[:office]
 	print "**************************************************\n"
-	params[:office][:building_id]=params[:office][:building]
+	
 	print params[:office]
-    #@office = Office.new(params[:office])
+    @office = Office.new(params[:office])
 
     respond_to do |format|
       if @office.save
