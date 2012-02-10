@@ -15,13 +15,13 @@
     <td><%= account.desc %></td>
     <td><%= account.account %></td>
     <td><%= account.user.username %></td>
-    <td><%= link_to 'Show', account %></td>
-    <td><%= link_to 'Edit', edit_account_path(account) %></td>
-    <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', user_account_path(account.user,account) %></td>
+    <td><%= link_to 'Edit', edit_user_account_path(account.user,account) %></td>
+    <td><%= link_to 'Destroy', user_account_path(account.user,account), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Account', new_account_path %>
+<%= link_to 'New Account', new_user_account_path(current_user) %>

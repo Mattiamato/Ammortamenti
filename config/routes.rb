@@ -1,4 +1,8 @@
 Ammortamenti::Application.routes.draw do
+  get "dashboard/index"
+
+  get "dashboard/admin"
+
   resources :items
 
   
