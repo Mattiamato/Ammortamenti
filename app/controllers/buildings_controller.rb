@@ -14,6 +14,7 @@ class BuildingsController < ApplicationController
   # GET /buildings/1.json
   def show
     @building = Building.find(params[:id])
+	@offices = @building.offices.order("created_at DESC")
 
     respond_to do |format|
       format.html # show.html.erb

@@ -45,5 +45,27 @@
 <% end %>
 
 
+<table>
+  <tr>
+    <th>Desc</th>
+    <th>Number</th>
+
+    <th></th>
+	<th></th>
+	<th></th>
+  </tr>
+
+<% @offices.each do |office| %>
+  <tr>
+    <td><%= office.desc %></td>
+    <td><%= office.number %></td>
+    
+    <td><%= link_to 'Show', office %></td>
+	<td><%= link_to 'Edit', edit_office_path(office) %></td>
+	<td><%= link_to 'Destroy', office, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
 <%= link_to 'Edit', edit_building_path(@building) %> |
 <%= link_to 'Back', buildings_path %>
