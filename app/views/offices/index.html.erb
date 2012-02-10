@@ -14,7 +14,7 @@
   <tr>
     <td><%= office.desc %></td>
     <td><%= office.number %></td>
-    <td><%= office.building %></td>
+    <td><%= office.building != nil ? office.building.desc: "" %></td>
     <td><%= link_to 'Show', office %></td>
     <td><%= link_to 'Edit', edit_office_path(office) %></td>
     <td><%= link_to 'Destroy', office, confirm: 'Are you sure?', method: :delete %></td>

@@ -12,7 +12,7 @@
 
 <p>
   <b>Building:</b>
-  <%= @office.building %>
+  <%= @office.building != nil ? @office.building.desc: "" %>
 </p>
 
 

@@ -14,7 +14,7 @@
   <tr>
     <td><%= account.desc %></td>
     <td><%= account.account %></td>
-    <td><%= account.user %></td>
+    <td><%= account.user.username %></td>
     <td><%= link_to 'Show', account %></td>
     <td><%= link_to 'Edit', edit_account_path(account) %></td>
     <td><%= link_to 'Destroy', account, confirm: 'Are you sure?', method: :delete %></td>
