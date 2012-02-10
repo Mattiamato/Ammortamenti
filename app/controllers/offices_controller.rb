@@ -3,8 +3,7 @@ class OfficesController < ApplicationController
   # GET /offices.json
   def index
     @offices = Office.all
-	print "oooooooooooooooooooooooooooooooooooooooooooo\n"
-	print @offices 
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offices }
@@ -42,15 +41,16 @@ class OfficesController < ApplicationController
   # POST /offices.json
   def create
 	print "**************************************************\n"
-	print params[:office]
-	print "**************************************************\n"
 	
-	print params[:office]
-    @office = Office.new(params[:office])
+	print params
+	@building = Building.find(params[:building_id])
+	
+	
+    @office = @building.offices.create(params[:office])
 
     respond_to do |format|
       if @office.save
-        format.html { redirect_to @office, notice: 'Office was successfully created.' }
+        format.html { redirect_to building_path(@building), notice: 'Office was successfully created.' }
         format.json { render json: @office, status: :created, location: @office }
       else
         format.html { render action: "new" }
@@ -66,7 +66,7 @@ class OfficesController < ApplicationController
 
     respond_to do |format|
       if @office.update_attributes(params[:office])
-        format.html { redirect_to @office, notice: 'Office was successfully updated.' }
+        format.html { redirect_to building_path(@office.building), notice: 'Office was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -79,10 +79,11 @@ class OfficesController < ApplicationController
   # DELETE /offices/1.json
   def destroy
     @office = Office.find(params[:id])
+	@building = @office.building
     @office.destroy
 
     respond_to do |format|
-      format.html { redirect_to offices_url }
+      format.html { redirect_to building_path(@building) }
       format.json { head :ok }
     end
   end

@@ -1,13 +1,17 @@
 Ammortamenti::Application.routes.draw do
   resources :items
 
-  resources :payments
+  
+  resources :users do
+	resources :accounts do
+		resources :payments
+	end
+  end
+  
 
-  resources :accounts
-
-  resources :offices
-
-  resources :buildings
+  resources :buildings do
+	resources :offices
+  end
 
   resources :categories
 
@@ -18,7 +22,7 @@ Ammortamenti::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   root :to => "sessions#new"
   resources :tests
-  resources :users
+  
   resources :sessions
   
 
