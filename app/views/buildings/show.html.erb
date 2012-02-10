@@ -25,7 +25,7 @@
   <%= @building.desc %>
 </p>
 
-<%= form_for([@building.offices.build]) do |f| %>
+<%= form_for([@building,@building.offices.build]) do |f| %>
 
 
   <div class="field">
@@ -37,7 +37,6 @@
     <%= f.text_field :number %>
   </div>
   
-  <%= hidden_field_tag 'office[building_id]', @building.id %>
   
   <div class="actions">
     <%= f.submit %>
@@ -60,9 +59,9 @@
     <td><%= office.desc %></td>
     <td><%= office.number %></td>
     
-    <td><%= link_to 'Show', office %></td>
-	<td><%= link_to 'Edit', edit_office_path(office) %></td>
-	<td><%= link_to 'Destroy', office, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', building_office_path(@building,office) %></td>
+	<td><%= link_to 'Edit', edit_building_office_path(@building,office) %></td>
+	<td><%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

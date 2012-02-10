@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @office %> |
-<%= link_to 'Back', offices_path %>
+<%= link_to 'Show', building_office_path(@office.building,@office) %> |
+<%= link_to 'Back', @office.building %>
