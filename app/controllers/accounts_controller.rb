@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = current_user.accounts
-
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @accounts }
@@ -26,7 +26,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   # GET /accounts/new.json
   def new
-	@user = User.find(params[:user_id])
+	@user = current_user
     @account = @user.accounts.new
 
     respond_to do |format|
@@ -44,11 +44,14 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
 	params[:account][:user_id]=current_user.id
-    @account = Account.new(params[:account])
+	@account = Account.new(params[:account])
+	
+	
 	
     respond_to do |format|
       if @account.save
-        format.html { redirect_to user_accounts_path(@account.user), notice: 'Account was successfully created.' }
+		current_user.accounts << @account
+        format.html { redirect_to accounts_path, notice: 'Account was successfully created.' }
         format.json { render json: @account, status: :created, location: @account }
       else
         format.html { render action: "new" }

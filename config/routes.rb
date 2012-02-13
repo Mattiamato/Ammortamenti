@@ -6,12 +6,13 @@ Ammortamenti::Application.routes.draw do
   resources :items
 
   
-  resources :users do
-	resources :accounts do
-		resources :payments
-	end
+  resources :users
+  resources :accounts do
+	resources :payments
+	member do
+		post 'register'
+    end
   end
-  
 
   resources :buildings do
 	resources :offices
