@@ -68,7 +68,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to dashboard_index_path, notice: 'Account was successfully updated.' }
+        format.html { redirect_to ApplicationCon, notice: 'Account was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -98,7 +98,7 @@ class AccountsController < ApplicationController
 	@account.users << current_user
 	
 	 respond_to do |format|
-      format.html { redirect_to dashboard_index_path }
+      format.html { redirect_to dashboard_path }
       format.json { head :ok }
     end
 	
@@ -113,7 +113,7 @@ class AccountsController < ApplicationController
 	current_user.accounts.delete(@account) if current_user.accounts
 	
 	 respond_to do |format|
-      format.html { redirect_to dashboard_index_path }
+      format.html { redirect_to dashboard_path }
       format.json { head :ok }
     end
 	
