@@ -14,9 +14,6 @@
     <th>Account</th>
     <th>User</th>
     <th></th>
-    <th></th>
-    <th></th>
-	<th></th>
   </tr>
 
 <% @accounts.each do |account| %>
@@ -25,10 +22,14 @@
     <td><%= account.account %></td>
 
     <td><%= User.find(account.user_id).username %></td>
-    <td><%= link_to 'Show', account_path(account) %></td>
-    <td><%= link_to 'Edit', edit_account_path(account) %></td>
-	<td><%= link_to 'Un-Register', unregister_account_path(account), method: :post %></td>
-    <td><%= link_to 'Destroy', account_path(account), confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+	<div class="button-group">
+		<%= link_to 'Show', account_path(account), :class => "button primary icon search" %>
+		<%= link_to 'Edit', edit_account_path(account), :class => "button icon edit"%>
+		<%= link_to 'Un-Register', unregister_account_path(account), method: :post, :class => "button icon remove" %>
+		<%= link_to 'Destroy', account_path(account), confirm: 'Are you sure?', method: :delete, :class => "button danger icon trash" %>
+	</div>
+	</td>
   </tr>
 <% end %>
 </table>

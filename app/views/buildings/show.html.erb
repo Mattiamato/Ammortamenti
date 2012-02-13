@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<h2>Details building:</h2>
+<br />
 
 <p>
   <b>City:</b>
@@ -25,7 +27,15 @@
   <%= @building.desc %>
 </p>
 <br />
-<h2>Add an office in <%= @building.street %> <%= @building.number %></h2>
+
+<div class="button-group">
+	<%= link_to 'Edit', edit_building_path(@building), :class => "button"  %>
+	<%= link_to 'Back', buildings_path, :class => "button danger" %>
+</div>
+<br />
+<br />
+
+<h3>Add an office in <%= @building.street %> <%= @building.number %></h3>
 <br />
 
 <%= form_for([@building,@building.offices.build]) do |f| %>
@@ -46,12 +56,12 @@
   
   <br />
   
-  <div>
-    <%= f.submit :class => "btn success" %>
+  <div class="input">
+    <%= f.submit :class => "button primary" %>
   </div>
 <% end %>
 <br />
-<h2> Offices list: </h2>
+<h3> Offices list: </h3>
 
 <table>
   <tr>
@@ -68,13 +78,13 @@
     <td><%= office.desc %></td>
     <td><%= office.number %></td>
     
-    <td><%= link_to 'Show', building_office_path(@building,office), :class => "btn info"  %></td>
-	<td><%= link_to 'Edit', edit_building_office_path(@building,office), :class => "btn"  %></td>
-	<td><%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete, :class => "btn danger"  %></td>
+    <td>
+	<div class="button-group">
+		<%= link_to 'Show', building_office_path(@building,office), :class => "button primary"  %>
+		<%= link_to 'Edit', edit_building_office_path(@building,office), :class => "button"  %>
+		<%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete, :class => "button danger"  %>
+	</div>
+	</td>
   </tr>
 <% end %>
 </table>
-<br />
-<br />
-<%= link_to 'Edit', edit_building_path(@building), :class => "btn info"  %>
-<%= link_to 'Back', buildings_path, :class => "btn danger" %>

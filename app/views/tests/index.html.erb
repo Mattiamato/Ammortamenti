@@ -11,7 +11,7 @@
 <% @tests.each do |test| %>
   <tr>
     <td><%= test.test %></td>
-    <td><%= link_to 'Show', test, :class => "btn info"  %></td>
+    <td><%= link_to 'Show', test, :class => "btn"  %></td>
     <td><%= link_to 'Edit', edit_test_path(test), :class => "btn"  %></td>
     <td><%= link_to 'Destroy', test, confirm: 'Are you sure?', method: :delete , :class => "btn danger" %></td>
   </tr>
