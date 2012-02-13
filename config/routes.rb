@@ -8,7 +8,10 @@ Ammortamenti::Application.routes.draw do
   
   resources :users
   resources :accounts do
-		resources :payments
+	resources :payments
+	member do
+		post 'register'
+    end
   end
 
   resources :buildings do
