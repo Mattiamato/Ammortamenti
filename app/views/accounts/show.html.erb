@@ -12,9 +12,9 @@
 
 <p>
   <b>User:</b>
-  <%= @account.user.username %>
+  <%= User.find(@account.user_id).username %>
 </p>
 
 
-<%= link_to 'Edit', edit_user_account_path(@account.user,@account) %> |
-<%= link_to 'Back', user_accounts_path(@account.user) %>
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', dashboard_index_path %>
