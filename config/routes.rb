@@ -6,12 +6,10 @@ Ammortamenti::Application.routes.draw do
   resources :items
 
   
-  resources :users do
-	resources :accounts do
+  resources :users
+  resources :accounts do
 		resources :payments
-	end
   end
-  
 
   resources :buildings do
 	resources :offices
