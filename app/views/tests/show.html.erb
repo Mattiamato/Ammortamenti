@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Test:</b>
-  <%= @test.test %>
+	<h2>Test:</h2>
+	<%= @test.test%>
 </p>
 
 
@@ -22,6 +22,7 @@
 <% end %>
 
 
-
-<%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
+<br />
+<br />
+<%= link_to 'Edit', edit_test_path(@test), :class => "btn info"  %>
+<%= link_to 'Back', tests_path, :class => "btn danger" %>

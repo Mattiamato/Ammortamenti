@@ -21,28 +21,37 @@
 </p>
 
 <p>
-  <b>Desc:</b>
+  <b>Description:</b>
   <%= @building.desc %>
 </p>
+<br />
+<h2>Add an office in <%= @building.street %> <%= @building.number %></h2>
+<br />
 
 <%= form_for([@building,@building.offices.build]) do |f| %>
 
 
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_field :desc %>
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
+  <div class="clearfix">
+    <%= f.label :number %>
+	<div class="input">
+		<%= f.text_field :number %>
+	</div>
   </div>
   
+  <br />
   
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit :class => "btn success" %>
   </div>
 <% end %>
-
+<br />
+<h2> Offices list: </h2>
 
 <table>
   <tr>
@@ -59,12 +68,13 @@
     <td><%= office.desc %></td>
     <td><%= office.number %></td>
     
-    <td><%= link_to 'Show', building_office_path(@building,office) %></td>
-	<td><%= link_to 'Edit', edit_building_office_path(@building,office) %></td>
-	<td><%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', building_office_path(@building,office), :class => "btn info"  %></td>
+	<td><%= link_to 'Edit', edit_building_office_path(@building,office), :class => "btn"  %></td>
+	<td><%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete, :class => "btn danger"  %></td>
   </tr>
 <% end %>
 </table>
-
-<%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
+<br />
+<br />
+<%= link_to 'Edit', edit_building_path(@building), :class => "btn info"  %>
+<%= link_to 'Back', buildings_path, :class => "btn danger" %>

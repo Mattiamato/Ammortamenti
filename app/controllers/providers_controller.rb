@@ -1,4 +1,6 @@
 class ProvidersController < ApplicationController
+  load_and_authorize_resource
+  before_filter :require_user
   # GET /providers
   # GET /providers.json
   def index

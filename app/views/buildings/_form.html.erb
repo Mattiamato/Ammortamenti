@@ -11,27 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+  <div class="clearfix">
+    <%= f.label :city %>
+	<div class="input">
+		<%= f.text_field :city %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
+  <div class="clearfix">
+    <%= f.label :street %>
+	<div class="input">
+		<%= f.text_field :street %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
+  <div class="clearfix">
+    <%= f.label :number %>
+	<div class="input">
+		<%= f.text_field :number %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :nation %><br />
-    <%= f.text_field :nation %>
+  <div class="clearfix">
+    <%= f.label :nation %>
+	<div class="input">
+		<%= f.text_field :nation %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_field :desc %>
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit :class => "btn success"  %>
   </div>
 <% end %>
