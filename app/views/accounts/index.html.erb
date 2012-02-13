@@ -7,8 +7,6 @@
     <th>User</th>
     <th></th>
     <th></th>
-    <th></th>
-	<th></th>
   </tr>
 
 <% @accounts.each do |account| %>
@@ -18,9 +16,7 @@
 
     <td><%= User.find(account.user_id).username %></td>
     <td><%= link_to 'Show', account_path(account) %></td>
-    <td><%= link_to 'Edit', edit_account_path(account) %></td>
 	<td><%= link_to 'Register', register_account_path(account), method: :post %></td>
-    <td><%= link_to 'Destroy', account_path(account), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

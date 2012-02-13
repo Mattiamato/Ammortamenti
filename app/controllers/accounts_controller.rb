@@ -68,7 +68,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to user_accounts_path(@account.user), notice: 'Account was successfully updated.' }
+        format.html { redirect_to accounts_path, notice: 'Account was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -96,6 +96,21 @@ class AccountsController < ApplicationController
 	@account = Account.find(params[:id])
 	
 	@account.users << current_user
+	
+	 respond_to do |format|
+      format.html { redirect_to dashboard_index_path }
+      format.json { head :ok }
+    end
+	
+  end
+  
+  # POST /accounts/id/unresgister
+  # un_register an account for the watch list
+  
+  def unregister
+	@account = Account.find(params[:id])
+	
+	current_user.accounts.delete(@account) if current_user.accounts
 	
 	 respond_to do |format|
       format.html { redirect_to dashboard_index_path }
