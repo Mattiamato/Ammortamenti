@@ -4,7 +4,8 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = current_user.accounts
+    @accounts = Account.all
+	@accounts = @accounts - current_user.accounts
 	
     respond_to do |format|
       format.html # index.html.erb
@@ -67,7 +68,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to user_accounts_path(@account.user), notice: 'Account was successfully updated.' }
+        format.html { redirect_to accounts_path, notice: 'Account was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -83,8 +84,39 @@ class AccountsController < ApplicationController
     @account.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_accounts_path(@account.user) }
+      format.html { redirect_to accounts_path }
       format.json { head :ok }
     end
   end
+  
+  # POST /accounts/id/resgister
+  # register an account for the watch list
+  
+  def register
+	@account = Account.find(params[:id])
+	
+	@account.users << current_user
+	
+	 respond_to do |format|
+      format.html { redirect_to dashboard_index_path }
+      format.json { head :ok }
+    end
+	
+  end
+  
+  # POST /accounts/id/unresgister
+  # un_register an account for the watch list
+  
+  def unregister
+	@account = Account.find(params[:id])
+	
+	current_user.accounts.delete(@account) if current_user.accounts
+	
+	 respond_to do |format|
+      format.html { redirect_to dashboard_index_path }
+      format.json { head :ok }
+    end
+	
+  end
+  
 end

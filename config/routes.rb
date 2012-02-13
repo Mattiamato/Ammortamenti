@@ -11,6 +11,7 @@ Ammortamenti::Application.routes.draw do
 	resources :payments
 	member do
 		post 'register'
+		post 'unregister'
     end
   end
 

@@ -2,5 +2,35 @@
 <p>Find me in app/views/dashboard/index.html.erb</p>
 
 <ul>
-	<li><%= link_to "Accounts", accounts_path %></li>
+	<li><%= link_to "All accounts", accounts_path %></li>
 </ul>
+
+
+<h1>Registered accounts</h1>
+
+<table>
+  <tr>
+    <th>Desc</th>
+    <th>Account</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+	<th></th>
+  </tr>
+
+<% @accounts.each do |account| %>
+  <tr>
+    <td><%= account.desc %></td>
+    <td><%= account.account %></td>
+
+    <td><%= User.find(account.user_id).username %></td>
+    <td><%= link_to 'Show', account_path(account) %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+	<td><%= link_to 'Un-Register', unregister_account_path(account), method: :post %></td>
+    <td><%= link_to 'Destroy', account_path(account), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
