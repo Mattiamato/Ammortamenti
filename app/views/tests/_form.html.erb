@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :test %><br />
-    <%= f.text_field :test %>
+  <div class="clearfix">
+    <%= f.label :test %>
+	<div class="input">
+		<%= f.text_field :test, :class => "input-xlarge"%>
+	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit :class => "btn success"  %>
   </div>
 <% end %>
