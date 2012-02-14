@@ -1,12 +1,10 @@
 <h1>Listing offices</h1>
 
-<table>
+<table class="boot">
   <tr>
     <th>Description</th>
     <th>Number</th>
     <th>Building</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -16,10 +14,12 @@
     <td><%= office.number %></td>
     <td><%= office.building != nil ? office.building.desc: "" %></td>
     <td>
+	<div style='text-align:right;'>
 	<div class="button-group">
 		<%= link_to 'Show', building_office_path(office.building, office), :class => "button primary" %>
 		<%= link_to 'Edit', edit_building_office_path(office.building, office),:class => "button icon edit" %>
 		<%= link_to 'Destroy', building_office_path(office.building, office), confirm: 'Are you sure?', method: :delete,:class => "button danger icon trash" %>
+	</div>
 	</div>
 	</td>
   </tr>

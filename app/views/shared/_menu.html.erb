@@ -6,21 +6,20 @@
          <h3><%= link_to "Ammortamenti", dashboard_path %></h3>
 
           <ul>
-			<li class="active"><%= link_to "Test",tests_path %></li>
-			<li class="active"><%= link_to "Buildings",buildings_path %></li>
-			<li class="active"><%= link_to "Categories",categories_path %></li>
-			<li class="active"><%= link_to "Providers",providers_path %></li>
-			<li class="acrive"><%= link_to "Logout", logout_path %></li>
+			<li><%= link_to "Test",tests_path %></li>
+			<li><%= link_to "Buildings",buildings_path %></li>
+			<li><%= link_to "Categories",categories_path %></li>
+			<li><%= link_to "Providers",providers_path %></li>
 		  </ul>
 		
           <ul class="nav secondary-nav">
             <li class="menu">
-              <a href="#" class="menu">Dropdown</a>
+              <a href="#" class="menu"><%= current_user.username%> </a>
               <ul class="menu-dropdown">
-
-             
+				
+				<li id="activities"><%= link_to "Activities" ,"#" %></li>
                 <li class="divider"></li>
-				<li><%= link_to "Logout", logout_path %></li>
+					<li><%= link_to "Logout", logout_path %></li>
               </ul>
             </li>
           </ul>

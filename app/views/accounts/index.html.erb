@@ -1,11 +1,10 @@
 <h1>Listing accounts</h1>
 
-<table>
+<table class="boot">
   <tr>
     <th>Description</th>
     <th>Account</th>
     <th>User</th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -16,9 +15,11 @@
 
     <td><%= User.find(account.user_id).username %></td>
     <td>
+	<div style='text-align:right;'>
 	<div class="button-group">
 		<%= link_to 'Show', account_path(account), :class => "button primary icon search" %>
 		<%= link_to 'Register', register_account_path(account), method: :post, :class => "button icon rss" %>
+	</div>
 	</div>
 	</td>
   </tr>

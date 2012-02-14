@@ -4,7 +4,7 @@
 
 <p>
   <b>Description:</b>
-  <h3><%= @building.desc %></h3>
+  <%= @building.desc %>
 </p>
 
 <p>
@@ -66,14 +66,11 @@
 <br />
 <h3> Offices list: </h3>
 
-<table>
+<table class="boot">
   <tr>
     <th>Description</th>
     <th>Number</th>
-
     <th></th>
-	<th></th>
-	<th></th>
   </tr>
 
 <% @offices.each do |office| %>
@@ -82,10 +79,12 @@
     <td><%= office.number %></td>
     
     <td>
+	<div style='text-align:right;'>
 	<div class="button-group">
 		<%= link_to 'Show', building_office_path(@building,office), :class => "button primary"  %>
 		<%= link_to 'Edit', edit_building_office_path(@building,office), :class => "button"  %>
 		<%= link_to 'Destroy', building_office_path(@building,office), confirm: 'Are you sure?', method: :delete, :class => "button danger"  %>
+	</div>
 	</div>
 	</td>
   </tr>

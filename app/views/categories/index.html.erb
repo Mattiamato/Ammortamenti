@@ -1,13 +1,11 @@
 <h1>Listing categories of items</h1>
 
-<table>
+<table class="boot">
   <tr>
     <th>Description</th>
     <th>Unit price</th>
     <th>Serial number</th>
     <th>Image</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -18,11 +16,12 @@
     <td><%= category.sn %></td>
     <td><%= category.image %></td>
     <td>
-	
+	<div style='text-align:right;'>
 	<div class="button-group">
 	<%= link_to 'Show', category, :class => "button primary icon search"%>
     <%= link_to 'Edit', edit_category_path(category), :class => "button icon edit" %>
     <%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete, :class => "button danger icon trash"%>
+	</div>
 	</div>
 	</td>
 	
