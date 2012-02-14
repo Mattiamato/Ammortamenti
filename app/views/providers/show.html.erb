@@ -30,6 +30,7 @@
   <%= @provider.email %>
 </p>
 
-
-<%= link_to 'Edit', edit_provider_path(@provider), :class => "btn info"%>
-<%= link_to 'Back', providers_path, :class => "btn danger"%>
+<div class="button-group">
+	<%= link_to 'Edit', edit_provider_path(@provider), :class => "button primary"%>
+	<%= link_to 'Back', providers_path, :class => "button danger"%>
+</div>

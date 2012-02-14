@@ -11,29 +11,44 @@
       </ul>
     </div>
   <% end %>
-   <div class="field">
+   <div class="clearfix">
     <%= f.label :username %>
-    <%= f.text_field :username %>
+	<div class="input">
+		<%= f.text_field :username %>
+	</div>
   </div>
-  <div class="field">
+  <div class="clearfix">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+	<div class="input">
+		<%= f.text_field :email %>
+	</div>
   </div>
-  <div class="field">
+  <div class="clearfix">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+	<div class="input">
+		<%= f.text_field :name %>
+	</div>
   </div>
-  <div class="field">
+  <div class="clearfix">
     <%= f.label :family_name %>
-    <%= f.text_field :family_name %>
+	<div class="input">
+		<%= f.text_field :family_name %>
+	</div>
   </div>
-  <div class="field">
+  <div class="clearfix">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+	<div class="input">
+		<%= f.password_field :password %>
+	</div>
   </div>
-  <div class="field">
+  <div class="clearfix">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+	<div class="input">
+		<%= f.password_field :password_confirmation %>
+	</div>
   </div>
-  <div class="actions"><%= f.submit %></div>
+  
+  <div class="input">
+	<%= f.submit :class => "button primary" %>
+  </div>
 <% end %>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 	user = User.find_by_username(params[:username])
 	if user && user.authenticate(params[:password])
 		session[:user_id] = user.id
-		redir_path = dashboard_index_path
+		redir_path = dashboard_path
 		#redir_path = session[:return_to] if session[:return_to]
 		redirect_to redir_path, :notice => "Logged in!"
 	else

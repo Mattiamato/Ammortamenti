@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Desc:</b>
+  <b>Description:</b>
   <%= @office.desc %>
 </p>
 
@@ -15,6 +15,7 @@
   <%= @office.building != nil ? @office.building.desc: "" %>
 </p>
 
-
-<%= link_to 'Edit', edit_building_office_path(@office.building,@office) %> |
-<%= link_to 'Back', building_path(@office.building) %>
+<div class="button-group">
+	<%= link_to 'Edit', edit_building_office_path(@office.building,@office), :class => "button primary" %>
+	<%= link_to 'Back', building_path(@office.building), :class => "button danger" %>
+</div>

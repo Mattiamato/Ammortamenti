@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Desc</th>
+    <th>Description</th>
     <th>Number</th>
     <th>Building</th>
     <th></th>
@@ -15,13 +15,18 @@
     <td><%= office.desc %></td>
     <td><%= office.number %></td>
     <td><%= office.building != nil ? office.building.desc: "" %></td>
-    <td><%= link_to 'Show', office %></td>
-    <td><%= link_to 'Edit', edit_office_path(office) %></td>
-    <td><%= link_to 'Destroy', office, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+	<div class="button-group">
+		<%= link_to 'Show', building_office_path(office.building, office), :class => "button primary" %>
+		<%= link_to 'Edit', edit_building_office_path(office.building, office),:class => "button icon edit" %>
+		<%= link_to 'Destroy', building_office_path(office.building, office), confirm: 'Are you sure?', method: :delete,:class => "button danger icon trash" %>
+	</div>
+	</td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Office', new_office_path %>
+<div class="input">
+	<%= link_to 'New Office', new_building_office_path,:class => "button primary icon add" %>
+</div>

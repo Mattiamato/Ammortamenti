@@ -17,13 +17,20 @@
     <td><%= category.unit_price %></td>
     <td><%= category.sn %></td>
     <td><%= category.image %></td>
-    <td><%= link_to 'Show', category, :class => "btn info"  %></td>
-    <td><%= link_to 'Edit', edit_category_path(category), :class => "btn"  %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete, :class => "btn danger"%></td>
+    <td>
+	
+	<div class="button-group">
+	<%= link_to 'Show', category, :class => "button primary icon search"%>
+    <%= link_to 'Edit', edit_category_path(category), :class => "button icon edit" %>
+    <%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete, :class => "button danger icon trash"%>
+	</div>
+	</td>
+	
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Category', new_category_path, :class => "btn success"  %>
+<div class="input">
+	<%= link_to 'New Category', new_category_path, :class => "button primary icon add"  %>
+</div>

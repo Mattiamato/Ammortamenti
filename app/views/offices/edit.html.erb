@@ -2,5 +2,8 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', building_office_path(@office.building,@office) %> |
-<%= link_to 'Back', @office.building %>
+<div class="button-group">
+<%= link_to 'Show', building_office_path(@office.building,@office), :class => "button primary" %>
+<%= link_to 'Back', @office.building, :class => "button danger" %>
+</div>
+</div>
