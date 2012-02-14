@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Desc:</b>
+  <b>Description:</b>
   <%= @category.desc %>
 </p>
 
@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <b>Sn:</b>
+  <b>Serial number:</b>
   <%= @category.sn %>
 </p>
 
@@ -20,6 +20,7 @@
   <%= @category.image %>
 </p>
 
-
-<%= link_to 'Edit', edit_category_path(@category), :class => "btn info"  %>
-<%= link_to 'Back', categories_path, :class => "btn danger"  %>
+<div class="button-group">
+	<%= link_to 'Edit', edit_category_path(@category), :class => "button primary"  %>
+	<%= link_to 'Back', categories_path, :class => "button danger"  %>
+</div>
