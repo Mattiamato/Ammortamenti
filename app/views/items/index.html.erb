@@ -1,6 +1,6 @@
 <h1>Listing items</h1>
 
-<table>
+<table class="boot">
   <tr>
     <th>Number</th>
     <th>Document</th>
@@ -8,8 +8,6 @@
     <th>Category</th>
     <th>Provider</th>
     <th>Office</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -22,10 +20,12 @@
     <td><%= item.provider %></td>
     <td><%= item.office %></td>
     <td>
+	<div style='text-align:right;'>
 	<div class="button-group">
 		<%= link_to 'Show', item, :class => "button primary icon search" %>
 		<%= link_to 'Edit', edit_item_path(item), :class => "button icon edit" %>
 		<%= link_to 'Destroy', item, confirm: 'Are you sure?', method: :delete, :class => "button danger icon trash" %>
+	</div>
 	</div>
 	</td>
   </tr>
