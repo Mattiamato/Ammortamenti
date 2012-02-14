@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Desc:</b>
+  <b>Description:</b>
   <%= @account.desc %>
 </p>
 
@@ -15,6 +15,7 @@
   <%= User.find(@account.user_id).username %>
 </p>
 
-
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', dashboard_path %>
+<div class="button-group">
+	<%= link_to 'Edit', edit_account_path(@account), :class => "button primary" %>
+	<%= link_to 'Back', dashboard_path, :class => "button danger" %>
+</div>

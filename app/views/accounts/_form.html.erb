@@ -11,16 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_field :desc %>
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :account %><br />
-    <%= f.text_field :account %>
+  <div class="clearfix">
+    <%= f.label :account %>
+	<div class="input">
+		<%= f.text_field :account %>
+	</div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="input">
+    <%= f.submit :class => "button primary" %>
+
 <% end %>
