@@ -11,31 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :number %><br />
-    <%= f.text_field :number %>
+  <div class="clearfix">
+    <%= f.label :number %>
+	<div class="input">
+		<%= f.text_field :number %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :document %><br />
-    <%= f.text_field :document %>
+  <div class="clearfix">
+    <%= f.label :document %>
+	<div class="input">
+		<%= f.text_field :document %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :payment %><br />
-    <%= f.text_field :payment %>
+  <div class="clearfix">
+    <%= f.label :payment %>
+	<div class="input">
+		<%= f.text_field :payment %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
+  <div class="clearfix">
+    <%= f.label :category %>
+	<div class="input">
+		<%= f.text_field :category %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :provider %><br />
-    <%= f.text_field :provider %>
+  <div class="clearfix">
+    <%= f.label :provider %>
+	<div class="input">
+		<%= f.text_field :provider %>
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :office %><br />
-    <%= f.text_field :office %>
+  <div class="clearfix">
+    <%= f.label :office %>
+	<div class="input">
+		<%= f.text_field :office %>
+	</div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <div class="input">
+    <%= f.submit :class => "button primary" %>
 <% end %>
