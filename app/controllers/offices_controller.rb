@@ -40,10 +40,7 @@ class OfficesController < ApplicationController
   # POST /offices
   # POST /offices.json
   def create
-	
 	@building = Building.find(params[:building_id])
-	
-	
     @office = @building.offices.create(params[:office])
 
     respond_to do |format|
