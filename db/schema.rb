@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214094035) do
+ActiveRecord::Schema.define(:version => 20120214142330) do
 
   create_table "accounts", :force => true do |t|
     t.string   "desc"
@@ -47,13 +47,11 @@ ActiveRecord::Schema.define(:version => 20120214094035) do
     t.integer  "payment_id"
     t.integer  "category_id"
     t.integer  "provider_id"
-    t.integer  "office_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "items", ["category_id"], :name => "index_items_on_category_id"
-  add_index "items", ["office_id"], :name => "index_items_on_office_id"
   add_index "items", ["payment_id"], :name => "index_items_on_payment_id"
   add_index "items", ["provider_id"], :name => "index_items_on_provider_id"
 

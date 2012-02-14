@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @account = Account.find(params[:id])
-
+	@payments = @account.payments
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @account }

@@ -19,3 +19,76 @@
 	<%= link_to 'Edit', edit_account_path(@account), :class => "button primary" %>
 	<%= link_to 'Back', dashboard_path, :class => "button danger" %>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<h2>Listing payments</h2>
+
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Desc</th>
+    <th>Status</th>
+    <th>Document</th>
+    <th>Account</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @payments.each do |payment| %>
+  <tr>
+    <td><%= payment.amount %></td>
+    <td><%= payment.desc %></td>
+    <td><%= payment.status %></td>
+    <td><%= payment.document %></td>
+	<td>
+		<div class="button-group">
+			<%= link_to 'Show', account_payment_path(@account,payment),:class => "button primary" %>
+			<%= link_to 'Edit', edit_account_payment_path(@account,payment), :class => "button" %>
+			<%= link_to 'Destroy', account_payment_path(@account,payment), confirm: 'Are you sure?', method: :delete, :class => "button danger" %>
+		</div>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!--%= link_to 'New payment', new_account_payment_path(@account), :class => "button icon add" %-->
+
+<%= form_for([@account,@account.payments.build]) do |f| %>
+  
+  <div class="clearfix">
+    <%= f.label :amount %>
+	<div class="input">
+		<%= f.text_field :amount %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :status %>
+	<div class="input">
+		<%= f.text_field :status %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :document %>
+	<div class="input">
+		<%= f.text_field :document %>
+	</div>
+  </div>
+
+  <div class="input">
+    <%= f.submit :class => "button primary" %>
+  </div>
+<% end %>
