@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213083121) do
+ActiveRecord::Schema.define(:version => 20120214094035) do
 
   create_table "accounts", :force => true do |t|
     t.string   "desc"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20120213083121) do
 
   create_table "items", :force => true do |t|
     t.float    "number"
-    t.string   "document"
     t.integer  "payment_id"
     t.integer  "category_id"
     t.integer  "provider_id"
@@ -57,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20120213083121) do
   add_index "items", ["office_id"], :name => "index_items_on_office_id"
   add_index "items", ["payment_id"], :name => "index_items_on_payment_id"
   add_index "items", ["provider_id"], :name => "index_items_on_provider_id"
+
+  create_table "items_assignement", :id => false, :force => true do |t|
+    t.integer "item_id",   :null => false
+    t.integer "office_id", :null => false
+    t.float   "number"
+  end
 
   create_table "offices", :force => true do |t|
     t.string   "desc"
