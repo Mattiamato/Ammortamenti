@@ -38,10 +38,16 @@
 <br />
 <br />
 
-<h3>Add an office in <%= @building.street %> <%= @building.number %></h3>
-<br />
 
+
+<div class="button primary" id="new_office_button">Add new office</div>
+	<br />
+	
+<div class="input">
 <%= form_for([@building,@building.offices.build]) do |f| %>
+
+	<h3>Add an office in <%= @building.desc %></h3>
+	<br />
 
   <div class="clearfix">
     <%= f.label :desc %>
@@ -62,6 +68,8 @@
     <%= f.submit :class => "button primary" %>
   </div>
 <% end %>
+</div>
+
 <br />
 <h3> Offices list: </h3>
 
