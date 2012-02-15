@@ -7,5 +7,4 @@ $(document).ready(function(){
   }, function () {
   $("#new_office").hide();
   });
- 
 });
