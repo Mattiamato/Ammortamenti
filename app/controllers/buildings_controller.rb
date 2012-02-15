@@ -5,7 +5,9 @@ class BuildingsController < ApplicationController
   # GET /buildings.json
   def index
     @buildings = Building.all
-
+	@building = Building.new
+	@offices = @building.offices.order("created_at DESC")
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @buildings }
@@ -47,7 +49,7 @@ class BuildingsController < ApplicationController
 
     respond_to do |format|
       if @building.save
-        format.html { redirect_to @building, notice: 'Building was successfully created.' }
+        format.html { redirect_to buildings_path, notice: 'Building was successfully created.' }
         format.json { render json: @building, status: :created, location: @building }
       else
         format.html { render action: "new" }

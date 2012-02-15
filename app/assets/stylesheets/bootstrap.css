@@ -2480,3 +2480,8 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 	margin: 0px;
 	padding: 0px;
 }
+
+
+.propriety_building{
+	background-color: #FFF;
+}

@@ -46,11 +46,11 @@
 <div class="input">
 <%= form_for([@building,@building.offices.build]) do |f| %>
 
-	<h3>Add an office in <%= @building.desc %></h3>
+	<h3>New office in <%= @building.desc %></h3>
 	<br />
 
   <div class="clearfix">
-    <%= f.label :desc %>
+    <%= f.label "description" %>
 	<div class="input">
 		<%= f.text_field :desc %>
 	</div>

@@ -2,16 +2,20 @@
 
 <table class="boot">
   <tr>
+	<th></th>
     <th>Description</th>
 	<th>City</th>
     <th>Street</th>
     <th>Number</th>
     <th>Nation</th>
-    <th></th>
+	<th></th>
   </tr>
 
 <% @buildings.each do |building| %>
   <tr>
+	<td>
+		<span class="propriety_building_line button icon approve" id="<%= building.id %>" ></span>
+	</td>
     <td><%= building.desc %></td>
 	<td><%= building.city %></td>
     <td><%= building.street %></td>
@@ -26,11 +30,56 @@
 	</div>
 	</div>
 	</td>
+	<tr class="propriety_building" id="details-<%= building.id %>">
+		<td colspan='7'>
+			<ul>
+			<% building.offices.each do |office| %>
+			<li><%= office.desc %></li>
+			<% end %>
+			</ul>
+		</td>
+	</tr>
   </tr>
-<% end %>
+  <% end %>
 </table>
 
 <br />
-<div class="input">
-	<%= link_to 'New Building', new_building_path, :class => "button primary icon add"  %>
-</div>
+
+<div class="button primary icon add" id="new_building_button"> New building </div>
+<br /><br />
+<%= form_for(@building) do |f| %>
+  <h3>New building details:</h3><br />
+  <div class="clearfix">
+    <%= f.label :city %>
+	<div class="input">
+		<%= f.text_field :city %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :street %>
+	<div class="input">
+		<%= f.text_field :street %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :number %>
+	<div class="input">
+		<%= f.text_field :number %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :nation %>
+	<div class="input">
+		<%= f.text_field :nation %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
+  </div>
+  <div class="input">
+    <%= f.submit :class => "button primary"  %>
+  </div>
+<% end %>
