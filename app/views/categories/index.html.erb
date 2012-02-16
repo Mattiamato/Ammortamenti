@@ -24,12 +24,50 @@
 	</div>
 	</div>
 	</td>
-	
+
   </tr>
 <% end %>
 </table>
 
 <br />
-<div class="input">
-	<%= link_to 'New Category', new_category_path, :class => "button primary icon add"  %>
-</div>
+<div class="button primary icon add" id="new_category_button">New Category</div>
+<br />
+<br />
+<%= form_for(@category) do |f| %>
+  <h3>New Category details:</h3><br />
+  <div class="clearfix">
+    <%= f.label :desc %>
+	<div class="input">
+		<%= f.text_field :desc %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :unit_price %>
+	<div class="input">
+		<%= f.text_field :unit_price %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :sn %>
+	<div class="input">
+		<%= f.text_field :sn %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :image %>
+	<div class="input">
+		<%= f.text_field :image %>
+	</div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :tags %>
+	<div class="input">
+		<%= text_field_tag "category[tag_list]" %>
+	</div>
+  </div>
+  
+  <div class ="input">
+    <%= f.submit :class => "button primary"  %>
+
+<% end %>
